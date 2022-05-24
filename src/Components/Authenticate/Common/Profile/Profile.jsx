@@ -9,7 +9,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import Typography from '@mui/material/Typography';
-import { auth, db } from '../../../Firebase/firebase.config';
+import { auth, db } from '../../../../Firebase/firebase.config';
 import style from './Profile.module.css';
 
 const styles = {

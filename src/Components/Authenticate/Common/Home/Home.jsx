@@ -1,10 +1,11 @@
+/* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import Sidebar from './Sidebar';
-import Header from './Header';
+import Sidebar from '../Sidebar/Sidebar';
+import Header from '../Header/Header';
 import styles from './Home.module.css';
-import Welcome from './Welcome';
+import Welcome from '../Welcome/Welcome';
 
 const Home = ({ role, authenticate }) => {
   const [count, setCount] = useState(0);

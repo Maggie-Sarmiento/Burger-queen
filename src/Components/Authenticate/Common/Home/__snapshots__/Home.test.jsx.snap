@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test App render App 1`] = `
+<section
+  className="admin"
+>
+  <section
+    className="sidebar"
+  />
+  <main
+    className="main"
+  >
+    <header
+      className="header"
+    >
+      <div
+        className="Profile"
+      >
+        <div>
+          <button
+            aria-haspopup="true"
+            className="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root btnProfile css-xa6ayv-MuiButtonBase-root-MuiButton-root"
+            disabled={false}
+            id="basic-button"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            undefinedundefined
+            <span
+              className="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </header>
+    <div
+      className="adminOutlet"
+    />
+  </main>
+</section>
+`;

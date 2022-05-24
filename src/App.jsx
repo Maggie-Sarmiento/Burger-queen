@@ -1,9 +1,10 @@
+/* eslint-disable import/extensions */
 /* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { getDoc, doc } from 'firebase/firestore';
-import NotFound from './Components/No-Authenticate/NotFound';
+import NotFound from './Components/No-Authenticate/NotFound/NotFound';
 import LogIn from './Components/No-Authenticate/Login/LogIn';
 import { auth, db } from './Firebase/firebase.config';
 import './App.css';

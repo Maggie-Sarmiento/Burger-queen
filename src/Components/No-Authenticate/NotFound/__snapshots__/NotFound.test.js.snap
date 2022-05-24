@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test notfound render Notfound 1`] = `
+<img
+  alt="img404"
+  src="https://svgshare.com/i/gnR.svg"
+/>
+`;

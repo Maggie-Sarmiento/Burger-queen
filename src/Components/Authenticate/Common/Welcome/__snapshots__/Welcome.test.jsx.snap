@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test App render App 1`] = `
+<section
+  className="welcome"
+>
+  <div
+    className="txt"
+  >
+    <p
+      className="hello"
+    >
+      Bienvenidx a Burger Queen!
+    </p>
+    <p
+      className="message"
+    >
+      En esta App, podras encontrar las herramientas para poder llevar a cabo tus tareas en Burguer Queen.
+    </p>
+    <p
+      className="message"
+    >
+      Selecciona cualquier sección del menú lateral para empezar a tomar/servir ordenes, administrar al personal y el menú según tu rol asignado.
+    </p>
+    <p>
+      Si tienes dudas o preguntas sobre el manejo de la App Marca al 01-800-BQMX
+    </p>
+  </div>
+  <div
+    className="images"
+  >
+    <img
+      alt="spot"
+      className="spot"
+      src="/yellowspot.jpg"
+    />
+    <img
+      alt="spot"
+      className="waiter"
+      src="/waiter.jpg"
+    />
+  </div>
+</section>
+`;

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test header render header 1`] = `
+<section
+  className="sectionMenu"
+>
+  <section />
+  <div
+    className="MuiContainer-root MuiContainer-maxWidthLg css-1oqqzyl-MuiContainer-root"
+  >
+    <h2
+      className="MuiTypography-root MuiTypography-h4 css-10mgom-MuiTypography-root"
+    >
+      Menu Almuerzo y Cena
+    </h2>
+    <div
+      className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-zow5z4-MuiGrid-root"
+    />
+  </div>
+</section>
+`;
