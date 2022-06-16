@@ -10,7 +10,11 @@ const ServeOrders = () => {
   console.log('orders data menu', dataMenu);
 
   useEffect(() => {
-    fetch('http://localhost:3001/orders')
+    const requestOption = {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNrYXJsZXQxNW1AZ21haWwuY29tIiwiaWF0IjoxNjU1Mzg5NTIzLCJleHAiOjE2NTUzOTY3MjN9.rnOUWHPvhFWzJr_BtXSr1ebZkPwJ6OKif0QlHvkt06A' },
+    };
+    fetch('http://localhost:8080/orders', requestOption)
       .then((response) => response.json())
       .then((data) => setDataMenu(data));
   }, [refreshData]);

@@ -89,14 +89,14 @@ const ModalStaff = ({ open, setOpen }) => {
     await setDoc(doc(db, 'profile', id), localData);
   };
 
-  const saveDataApi = (localData) => {
+  const saveDataApi = async (localData) => {
     const requestOption = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNrYXJsZXQxNW1AZ21haWwuY29tIiwiaWF0IjoxNjU1Mzg5NTIzLCJleHAiOjE2NTUzOTY3MjN9.rnOUWHPvhFWzJr_BtXSr1ebZkPwJ6OKif0QlHvkt06A' },
       body: JSON.stringify(localData),
     };
 
-    fetch('http://localhost:3001/empleados', requestOption)
+    fetch('http://localhost:8080/staffs', requestOption)
       .then((response) => response.json())
       .catch((err) => console.log(err));
   };
@@ -123,7 +123,7 @@ const ModalStaff = ({ open, setOpen }) => {
         await updateCurrentUser(auth, originalUser); // returns user to original loged in user
 
         await saveDataFirebase(data, uid); // saves info of created user
-        saveDataApi(data);
+        await saveDataApi(data);
 
         handleClose();
       } else {
