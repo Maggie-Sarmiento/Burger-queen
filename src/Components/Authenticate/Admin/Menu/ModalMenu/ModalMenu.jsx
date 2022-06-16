@@ -44,19 +44,19 @@ const ModalMenu = ({
   const saveDataApi = (localData) => {
     const requestOption = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
       body: JSON.stringify(localData),
     };
 
     if (menu === 'menu') {
-      fetch('http://localhost:3001/menu', requestOption)
+      fetch('http://localhost:8080/menu', requestOption)
         .then((response) => {
           response.json();
           refresh();
         })
         .catch((err) => console.log(err));
     } else {
-      fetch('http://localhost:3001/menuLunch', requestOption)
+      fetch('http://localhost:8080/menuLunch', requestOption)
         .then((response) => {
           response.json();
           refresh();

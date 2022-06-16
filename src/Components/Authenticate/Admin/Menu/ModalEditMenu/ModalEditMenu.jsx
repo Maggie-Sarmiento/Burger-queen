@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import Box from '@mui/material/Box';
@@ -43,21 +44,21 @@ const ModalEditMenu = ({
 
     const requestOption = {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
       body: JSON.stringify(menuEditData),
     };
 
     const refresh = () => setRefreshData(!refreshData);
 
     if (menu === 'menu') {
-      fetch(`http://localhost:3001/menu/${id}`, requestOption)
+      fetch(`http://localhost:8080/menu/${id}`, requestOption)
         .then((response) => {
           response.json();
           refresh();
         })
         .catch((err) => console.log(err));
     } else {
-      fetch(`http://localhost:3001/menuLunch/${id}`, requestOption)
+      fetch(`http://localhost:8080/menuLunch/${id}`, requestOption)
         .then((response) => {
           response.json();
           refresh();
@@ -114,7 +115,7 @@ const ModalEditMenu = ({
               variant="standard"
               defaultValue={data && data.image}
             />
-            <Button onClick={(e) => editDataApi(e, data.id)} type="submit">Guardar</Button>
+            <Button onClick={(e) => editDataApi(e, data._id)} type="submit">Guardar</Button>
           </Box>
         </form>
       </Modal>

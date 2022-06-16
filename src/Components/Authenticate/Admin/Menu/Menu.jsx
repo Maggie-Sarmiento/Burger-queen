@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import { Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
@@ -22,17 +23,15 @@ const Menu = ({ role }) => {
   const [refreshData, setRefreshData] = useState(false);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  console.log('Estoy en menu');
 
   useEffect(() => {
     const requestOption = {
       method: 'GET',
-      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNrYXJsZXQxNW1AZ21haWwuY29tIiwiaWF0IjoxNjU1Mzg5NTIzLCJleHAiOjE2NTUzOTY3MjN9.rnOUWHPvhFWzJr_BtXSr1ebZkPwJ6OKif0QlHvkt06A' },
+      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
     };
     fetch('http://localhost:8080/menu', requestOption)
       .then((response) => response.json())
       .then((data) => setDataMenu(data));
-    console.log(dataMenu);
   }, [refreshData]);
 
   return (
@@ -66,7 +65,7 @@ const Menu = ({ role }) => {
           <Grid container spacing={3}>
             {dataMenu.map((product) => (
               <CardMenu
-                key={product.id}
+                key={product._id}
                 role={role}
                 menu="menu"
                 product={product}

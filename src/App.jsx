@@ -25,9 +25,7 @@ const App = () => {
       .then((useRol) => {
         setRol(useRol);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => error);
   };
 
   onAuthStateChanged(auth, (user) => {
@@ -41,8 +39,6 @@ const App = () => {
 
   return (
     <Router>
-      { console.log(authenticate) }
-      { console.log(role) }
       {
         authenticate !== 'skip'
           ? (

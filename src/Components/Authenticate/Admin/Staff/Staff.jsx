@@ -84,11 +84,9 @@ const Staff = () => {
       email: data[5].value,
     };
 
-    console.log(employeeData);
-
     const requestOption = {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNrYXJsZXQxNW1AZ21haWwuY29tIiwiaWF0IjoxNjU1Mzg5NTIzLCJleHAiOjE2NTUzOTY3MjN9.rnOUWHPvhFWzJr_BtXSr1ebZkPwJ6OKif0QlHvkt06A' },
+      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
       body: JSON.stringify(employeeData),
     };
 
@@ -98,14 +96,14 @@ const Staff = () => {
         employeeData.id = id;
         setDataStaff([...dataStaff.filter((staff) => staff.id !== id), employeeData]);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => err);
     openCLoseModalEdit();
   };
 
   const deleteDataApi = (id) => {
     const requestOption = {
       method: 'DELETE',
-      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNrYXJsZXQxNW1AZ21haWwuY29tIiwiaWF0IjoxNjU1Mzg5NTIzLCJleHAiOjE2NTUzOTY3MjN9.rnOUWHPvhFWzJr_BtXSr1ebZkPwJ6OKif0QlHvkt06A' },
+      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
     };
 
     fetch(`http://localhost:8080/staffs/${id}`, requestOption)
@@ -113,7 +111,7 @@ const Staff = () => {
       .then(() => {
         setDataStaff(dataStaff.filter((staff) => staff.id !== userEdit.id));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => err);
     openCLoseModalDelete();
   };
 
@@ -190,7 +188,7 @@ const Staff = () => {
   useEffect(() => {
     const requestOption = {
       method: 'GET',
-      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNrYXJsZXQxNW1AZ21haWwuY29tIiwiaWF0IjoxNjU1Mzg5NTIzLCJleHAiOjE2NTUzOTY3MjN9.rnOUWHPvhFWzJr_BtXSr1ebZkPwJ6OKif0QlHvkt06A' },
+      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
     };
     fetch('http://localhost:8080/staffs', requestOption)
       .then((response) => response.json())

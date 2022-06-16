@@ -9,7 +9,6 @@ const Header = ({
   role, authenticate, count, dataProduct, setDataProduct, setCount,
 }) => {
   const location = useLocation();
-  console.log('header', location.pathname);
   if (role === 'Mesero' && (location.pathname === '/home/menu' || location.pathname === '/home/menu-lunch')) {
     return (
       <header className={style.header}>

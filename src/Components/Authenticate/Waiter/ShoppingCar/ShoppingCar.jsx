@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import Badge from '@mui/material/Badge';
@@ -60,7 +61,6 @@ const ShoppingCar = ({
     // eslint-disable-next-line max-len
     const total = dataProduct?.map((elems) => elems.price).reduce((acum, elem) => acum + elem, 0);
     setSum(total?.toFixed(2));
-    console.log(total);
   };
 
   const handleClick = (event) => {
@@ -107,13 +107,13 @@ const ShoppingCar = ({
 
     const requestOption = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
       body: JSON.stringify(newData),
     };
 
-    fetch('http://localhost:3001/orders', requestOption)
+    fetch('http://localhost:8080/orders', requestOption)
       .then((response) => response.json())
-      .catch((err) => console.log(err));
+      .catch((err) => err);
     handleClose();
     setDataProduct([]);
     setCount(0);
@@ -167,15 +167,13 @@ const ShoppingCar = ({
                 <Table>
                   <TableHead>
                     <TableRow>
-                      <TableCell><b>ID</b></TableCell>
                       <TableCell><b>Nombre</b></TableCell>
                       <TableCell><b>Precio</b></TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
                     {dataProduct?.map((order) => (
-                      <TableRow key={order.id}>
-                        <TableCell>{order.id}</TableCell>
+                      <TableRow key={order._id}>
                         <TableCell>{order.name}</TableCell>
                         <TableCell>
                           $&nbsp;
@@ -183,7 +181,7 @@ const ShoppingCar = ({
                           &nbsp;MXN
                         </TableCell>
                         <TableCell>
-                          <DeleteIcon onClick={() => deleteOrder(order.id)} />
+                          <DeleteIcon onClick={() => deleteOrder(order._id)} />
                         </TableCell>
                       </TableRow>
                     ))}

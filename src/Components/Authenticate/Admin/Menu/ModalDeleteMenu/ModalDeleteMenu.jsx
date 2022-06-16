@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import Modal from '@mui/material/Modal';
@@ -35,9 +36,10 @@ const ModalDeleteMenu = ({
   const deleteDataApi = (id) => {
     const requestOption = {
       method: 'DELETE',
+      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
     };
     if (menu === 'menu') {
-      fetch(`http://localhost:3001/menu/${id}`, requestOption)
+      fetch(`http://localhost:8080/menu/${id}`, requestOption)
         .then((response) => {
           response.json();
           refresh();
@@ -47,7 +49,7 @@ const ModalDeleteMenu = ({
         })
         .catch((err) => console.log(err));
     } else {
-      fetch(`http://localhost:3001/menuLunch/${id}`, requestOption)
+      fetch(`http://localhost:8080/menuLunch/${id}`, requestOption)
         .then((response) => {
           response.json();
           refresh();
@@ -75,7 +77,7 @@ const ModalDeleteMenu = ({
             ?
           </p>
           <div align="right">
-            <Button color="secondary" onClick={() => deleteDataApi(data.id)}>Sí</Button>
+            <Button color="secondary" onClick={() => deleteDataApi(data._id)}>Sí</Button>
             <Button onClick={handleClose}>No</Button>
           </div>
         </div>

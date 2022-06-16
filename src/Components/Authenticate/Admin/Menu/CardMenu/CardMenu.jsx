@@ -60,88 +60,85 @@ const theme = createTheme({
 
 const CardMenu = ({
   role, menu, product, refreshData, setRefreshData,
-}) => {
-  console.log(role);
-  return (
-    <Grid item xs={6} sm={3}>
-      <ThemeProvider theme={theme}>
-        <Paper elevation={3} className="paper">
-          <img src={product.image} alt="" className={styles.imgCard} />
-          <Box
-            sx={{
-              paddingX: 1,
-              position: 'relative',
-            }}
-          >
-            <Box>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-                marginTop={0.5}
-              >
-                <Rating
-                  name="size-small"
-                  size="small"
-                  defaultValue={product.popularity}
-                  precision={0.25}
-                  readOnly
-                />
-              </Box>
-              {(role === 'Admin')
-                ? (
-                  <Box sx={threeMenuStyle}>
-                    <ThreeDotsMenu
-                      menu={menu}
-                      product={product}
-                      refreshData={refreshData}
-                      setRefreshData={setRefreshData}
-                    />
-                  </Box>
-                )
-                : (
-                  <Box sx={btnAdd}>
-                    <BtnAdd product={product} />
-                  </Box>
-                )}
-            </Box>
-            <Typography
-              variant="subtitle1"
-              component="h2"
-              className={styles.productName}
-              sx={{
-                alignSelf: 'center',
-                fontWeight: 'bold',
-                fontSize: '0.8em',
-              }}
-            >
-              {product.name}
-            </Typography>
-
+}) => (
+  <Grid item xs={6} sm={3}>
+    <ThemeProvider theme={theme}>
+      <Paper elevation={3} className="paper">
+        <img src={product.image} alt="" className={styles.imgCard} />
+        <Box
+          sx={{
+            paddingX: 1,
+            position: 'relative',
+          }}
+        >
+          <Box>
             <Box
               sx={{
                 display: 'flex',
+                alignItems: 'center',
+              }}
+              marginTop={0.5}
+            >
+              <Rating
+                name="size-small"
+                size="small"
+                defaultValue={product.popularity}
+                precision={0.25}
+                readOnly
+              />
+            </Box>
+            {(role === 'Admin')
+              ? (
+                <Box sx={threeMenuStyle}>
+                  <ThreeDotsMenu
+                    menu={menu}
+                    product={product}
+                    refreshData={refreshData}
+                    setRefreshData={setRefreshData}
+                  />
+                </Box>
+              )
+              : (
+                <Box sx={btnAdd}>
+                  <BtnAdd product={product} />
+                </Box>
+              )}
+          </Box>
+          <Typography
+            variant="subtitle1"
+            component="h2"
+            className={styles.productName}
+            sx={{
+              alignSelf: 'center',
+              fontWeight: 'bold',
+              fontSize: '0.8em',
+            }}
+          >
+            {product.name}
+          </Typography>
+
+          <Box
+            sx={{
+              display: 'flex',
+            }}
+          >
+            <Typography
+              variant="h6"
+              component="h3"
+              className={styles.productPrice}
+              sx={{
+                fontSize: '0.8em',
               }}
             >
-              <Typography
-                variant="h6"
-                component="h3"
-                className={styles.productPrice}
-                sx={{
-                  fontSize: '0.8em',
-                }}
-              >
-                $&nbsp;
-                {product.price}
-                &nbsp;MXN
-              </Typography>
-            </Box>
+              $&nbsp;
+              {product.price}
+              &nbsp;MXN
+            </Typography>
           </Box>
-        </Paper>
-      </ThemeProvider>
-    </Grid>
-  );
-};
+        </Box>
+      </Paper>
+    </ThemeProvider>
+  </Grid>
+);
 
 export default CardMenu;

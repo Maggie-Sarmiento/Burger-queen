@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 import {
@@ -126,7 +127,7 @@ const CardOrder = ({
 
               <TableBody>
                 {order.products?.map((product) => (
-                  <TableRow key={product.id}>
+                  <TableRow key={product._id}>
                     <TableCell>{1}</TableCell>
                     <TableCell>{product.name}</TableCell>
                     <TableCell>
