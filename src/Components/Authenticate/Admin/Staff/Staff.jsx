@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from 'react';
 // import { makeStyles } from '@material-ui/core/styles';
@@ -83,35 +84,34 @@ const Staff = () => {
       email: data[5].value,
     };
 
-    console.log(employeeData);
-
     const requestOption = {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
       body: JSON.stringify(employeeData),
     };
 
-    fetch(`http://localhost:3001/empleados/${id}`, requestOption)
+    fetch(`http://localhost:8080/staffs/${id}`, requestOption)
       .then((response) => {
         response.json();
         employeeData.id = id;
         setDataStaff([...dataStaff.filter((staff) => staff.id !== id), employeeData]);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => err);
     openCLoseModalEdit();
   };
 
   const deleteDataApi = (id) => {
     const requestOption = {
       method: 'DELETE',
+      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
     };
 
-    fetch(`http://localhost:3001/empleados/${id}`, requestOption)
+    fetch(`http://localhost:8080/staffs/${id}`, requestOption)
       .then((response) => response.json())
       .then(() => {
         setDataStaff(dataStaff.filter((staff) => staff.id !== userEdit.id));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => err);
     openCLoseModalDelete();
   };
 
@@ -179,14 +179,18 @@ const Staff = () => {
       <br />
       <br />
       <div align="right">
-        <Button type="submit" color="primary" onClick={(e) => editDataApi(e, userEdit.id)}>Guardar</Button>
+        <Button type="submit" color="primary" onClick={(e) => editDataApi(e, userEdit._id)}>Guardar</Button>
         <Button type="button" onClick={() => openCLoseModalEdit()}>Cancelar</Button>
       </div>
     </form>
   );
 
   useEffect(() => {
-    fetch('http://localhost:3001/empleados')
+    const requestOption = {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
+    };
+    fetch('http://localhost:8080/staffs', requestOption)
       .then((response) => response.json())
       .then((data) => setDataStaff(data));
   }, []);
@@ -204,7 +208,6 @@ const Staff = () => {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell><b>ID</b></TableCell>
                 <TableCell><b>Nombre</b></TableCell>
                 <TableCell><b>Apellido</b></TableCell>
                 <TableCell><b>Rol</b></TableCell>
@@ -216,8 +219,7 @@ const Staff = () => {
 
             <TableBody>
               {dataStaff.map((empleado) => (
-                <TableRow key={empleado.id}>
-                  <TableCell>{empleado.id}</TableCell>
+                <TableRow key={empleado._id}>
                   <TableCell>{empleado.name}</TableCell>
                   <TableCell>{empleado.lastname}</TableCell>
                   <TableCell>{empleado.role}</TableCell>
@@ -256,7 +258,7 @@ const Staff = () => {
                 ?
               </p>
               <div align="right">
-                <Button color="secondary" onClick={() => deleteDataApi(userEdit.id)}>Sí</Button>
+                <Button color="secondary" onClick={() => deleteDataApi(userEdit._id)}>Sí</Button>
                 <Button onClick={() => openCLoseModalDelete()}>No</Button>
               </div>
             </div>

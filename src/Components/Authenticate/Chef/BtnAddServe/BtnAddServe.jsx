@@ -31,7 +31,6 @@ const BtnAddServe = ({
     horizontal: 'center',
   });
 
-  console.log('BtnAddServe', id);
   const refresh = () => setRefreshData(!refreshData);
 
   const updateDataService = (dataServiceServe, idUpdateData) => {
@@ -42,16 +41,16 @@ const BtnAddServe = ({
     dataServiceServe.endTime = newMiliSeconds;
     const requestOption = {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
       body: JSON.stringify(dataServiceServe),
     };
 
-    fetch(`http://localhost:3001/orders/${idUpdateData}`, requestOption)
+    fetch(`http://localhost:8080/orders/${idUpdateData}`, requestOption)
       .then((response) => {
         response.json();
         refresh();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => err);
   };
 
   const { vertical, horizontal, open } = state;

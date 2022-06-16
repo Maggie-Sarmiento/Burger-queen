@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 import {
@@ -120,15 +121,15 @@ const CardServeOrder = ({
               <Table>
                 <TableHead>
                   <TableRow>
-                    <TableCell><b>Cant.</b></TableCell>
+                    <TableCell><b>ID</b></TableCell>
                     <TableCell><b>Producto</b></TableCell>
                     <TableCell><b>Servido</b></TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {order.products?.map((product) => (
-                    <TableRow key={product.id}>
-                      <TableCell>{product.id}</TableCell>
+                    <TableRow key={product._id}>
+                      <TableCell>{product._id}</TableCell>
                       <TableCell>{product.name}</TableCell>
                       <TableCell>
                         <Checkbox {...label} color="success" />

@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 import {
@@ -18,7 +19,11 @@ const ListOrders = () => {
   const [dataOrder, setDataOrder] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/orders')
+    const requestOption = {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
+    };
+    fetch('http://localhost:8080/orders', requestOption)
       .then((response) => response.json())
       .then((data) => setDataOrder(data));
   }, []);
@@ -52,13 +57,13 @@ const ListOrders = () => {
             </TableHead>
             <TableBody>
               {dataOrder.map((order) => (
-                <TableRow key={order.id}>
+                <TableRow key={order._id}>
                   <TableCell>{order.table}</TableCell>
                   <TableCell>{order.client}</TableCell>
                   <TableCell>{order.status}</TableCell>
                   <TableCell>
                     {order.products.map(
-                      (product) => <TableRow key={product.id}>{product.name}</TableRow>,
+                      (product) => <TableRow key={product._id}>{product.name}</TableRow>,
                     )}
                   </TableCell>
                   <TableCell>

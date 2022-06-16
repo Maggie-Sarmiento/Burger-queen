@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import { Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
@@ -23,7 +24,11 @@ const MenuLunch = ({ role }) => {
   const handleOpen = () => setOpen(true);
 
   useEffect(() => {
-    fetch('http://localhost:3001/menuLunch')
+    const requestOption = {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
+    };
+    fetch('http://localhost:8080/menuLunch', requestOption)
       .then((response) => response.json())
       .then((data) => setDataMenu(data));
   }, [refreshData]);
@@ -59,7 +64,7 @@ const MenuLunch = ({ role }) => {
           <Grid container spacing={3}>
             {dataMenu.map((product) => (
               <CardMenu
-                key={product.id}
+                key={product._id}
                 role={role}
                 menu="menuLunch"
                 product={product}
