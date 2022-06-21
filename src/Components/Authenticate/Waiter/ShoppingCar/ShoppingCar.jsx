@@ -15,6 +15,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { urlServer } from '../../../../config';
 
 const btnCar = {
   minWidth: '0',
@@ -111,7 +112,7 @@ const ShoppingCar = ({
       body: JSON.stringify(newData),
     };
 
-    fetch('http://localhost:8080/orders', requestOption)
+    fetch(`${urlServer}/orders`, requestOption)
       .then((response) => response.json())
       .catch((err) => err);
     handleClose();

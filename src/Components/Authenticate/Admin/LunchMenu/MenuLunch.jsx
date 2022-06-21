@@ -7,6 +7,7 @@ import AddIcon from '@mui/icons-material/Add';
 import CardMenu from '../Menu/CardMenu/CardMenu';
 import ModalMenu from '../Menu/ModalMenu/ModalMenu';
 import style from '../Menu/Menu.module.css';
+import { urlServer } from '../../../../config';
 
 const btnStyle = {
   bgcolor: 'black',
@@ -28,7 +29,7 @@ const MenuLunch = ({ role }) => {
       method: 'GET',
       headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('token') },
     };
-    fetch('http://localhost:8080/menuLunch', requestOption)
+    fetch(`${urlServer}/menuLunch`, requestOption)
       .then((response) => response.json())
       .then((data) => setDataMenu(data));
   }, [refreshData]);

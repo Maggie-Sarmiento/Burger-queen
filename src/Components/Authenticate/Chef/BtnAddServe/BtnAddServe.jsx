@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import { urlServer } from '../../../../config';
 
 const btnStyle = {
   bgcolor: 'white',
@@ -45,7 +46,7 @@ const BtnAddServe = ({
       body: JSON.stringify(dataServiceServe),
     };
 
-    fetch(`http://localhost:8080/orders/${idUpdateData}`, requestOption)
+    fetch(`${urlServer}/orders/${idUpdateData}`, requestOption)
       .then((response) => {
         response.json();
         refresh();

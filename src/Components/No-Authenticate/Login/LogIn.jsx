@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 // import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import styles from './Login.module.css';
 import { signInAccount } from '../../../Firebase/firebase.config';
+import { urlServer } from '../../../config';
 
 const LogIn = (props) => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const LogIn = (props) => {
         body: JSON.stringify({ email, password }),
       };
 
-      fetch('http://localhost:8080/auth', requestOption)
+      fetch(`${urlServer}/auth`, requestOption)
         .then(
           async (response) => {
             const tokenJson = await response.json();
