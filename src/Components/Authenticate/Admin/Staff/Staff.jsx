@@ -86,7 +86,7 @@ const Staff = () => {
 
     const requestOption = {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
+      headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('token') },
       body: JSON.stringify(employeeData),
     };
 
@@ -103,7 +103,7 @@ const Staff = () => {
   const deleteDataApi = (id) => {
     const requestOption = {
       method: 'DELETE',
-      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
+      headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('token') },
     };
 
     fetch(`http://localhost:8080/staffs/${id}`, requestOption)
@@ -188,7 +188,7 @@ const Staff = () => {
   useEffect(() => {
     const requestOption = {
       method: 'GET',
-      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
+      headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('token') },
     };
     fetch('http://localhost:8080/staffs', requestOption)
       .then((response) => response.json())

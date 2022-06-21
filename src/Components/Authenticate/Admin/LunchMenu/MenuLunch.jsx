@@ -26,7 +26,7 @@ const MenuLunch = ({ role }) => {
   useEffect(() => {
     const requestOption = {
       method: 'GET',
-      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
+      headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('token') },
     };
     fetch('http://localhost:8080/menuLunch', requestOption)
       .then((response) => response.json())

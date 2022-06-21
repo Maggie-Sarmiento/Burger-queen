@@ -44,7 +44,7 @@ const ModalMenu = ({
   const saveDataApi = (localData) => {
     const requestOption = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdzbWFnZ2llMDAxQGdtYWlsLmNvbSIsImlhdCI6MTY1NTM5NTkwMywiZXhwIjoxNjU1NDAzMTAzfQ.9_mySVPr2LtKv5RCrLokCSXgZDF4z51AsxhKK6taoWI' },
+      headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('token') },
       body: JSON.stringify(localData),
     };
 
