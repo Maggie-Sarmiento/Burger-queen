@@ -25,18 +25,33 @@ const LogIn = (props) => {
   //   return <p>Loading...</p>;
   // }
 
-  const handleLogIn = async () => {
+  const handleLogIn = () => {
     const expEmail = /^\w+([.+-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,4})+$/;
     const expPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
+
     if (expEmail.test(email) && expPassword.test(password)) {
-      try {
-        const { signIn } = props;
-        await signIn(email, password);
-        navigate('/home');
-      } catch (err) {
-        const alertError = document.querySelector('.alertError');
-        alertError.innerHTML = 'Error del servidor';
-      }
+      const requestOption = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ email, password }),
+      };
+
+      fetch('http://localhost:8080/auth', requestOption)
+        .then(
+          async (response) => {
+            const tokenJson = await response.json();
+            localStorage.setItem('token', tokenJson.token);
+            try {
+              const { signIn } = props;
+              signIn(email, password);
+              navigate('/home');
+            } catch (err) {
+              const alertError = document.querySelector('.alertError');
+              alertError.innerHTML = 'Error del servidor';
+            }
+          },
+        )
+        .catch((err) => console.log(err));
     } else {
       const alertError = document.querySelector('.alertError');
       alertError.innerHTML = 'Error correo o contraseña invalida';
