@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import { urlServer } from '../../../../../config';
 
 const modal = {
   display: 'flex',
@@ -39,7 +40,7 @@ const ModalDeleteMenu = ({
       headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('token') },
     };
     if (menu === 'menu') {
-      fetch(`http://localhost:8080/menu/${id}`, requestOption)
+      fetch(`${urlServer}/menu/${id}`, requestOption)
         .then((response) => {
           response.json();
           refresh();
@@ -49,7 +50,7 @@ const ModalDeleteMenu = ({
         })
         .catch((err) => console.log(err));
     } else {
-      fetch(`http://localhost:8080/menuLunch/${id}`, requestOption)
+      fetch(`${urlServer}/menuLunch/${id}`, requestOption)
         .then((response) => {
           response.json();
           refresh();

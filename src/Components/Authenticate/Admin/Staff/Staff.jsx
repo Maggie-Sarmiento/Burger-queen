@@ -18,6 +18,7 @@ import Box from '@mui/material/Box';
 import ModalStaff from './ModalStaff/ModalStaff';
 import StaffBtn from './StaffBtn';
 import styles from './Staff.module.css';
+import { urlServer } from '../../../../config';
 // import { flexbox } from '@mui/system';
 
 const modal = {
@@ -90,7 +91,7 @@ const Staff = () => {
       body: JSON.stringify(employeeData),
     };
 
-    fetch(`http://localhost:8080/staffs/${id}`, requestOption)
+    fetch(`${urlServer}/staffs/${id}`, requestOption)
       .then((response) => {
         response.json();
         employeeData.id = id;
@@ -106,7 +107,7 @@ const Staff = () => {
       headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('token') },
     };
 
-    fetch(`http://localhost:8080/staffs/${id}`, requestOption)
+    fetch(`${urlServer}/staffs/${id}`, requestOption)
       .then((response) => response.json())
       .then(() => {
         setDataStaff(dataStaff.filter((staff) => staff.id !== userEdit.id));
@@ -190,7 +191,7 @@ const Staff = () => {
       method: 'GET',
       headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('token') },
     };
-    fetch('http://localhost:8080/staffs', requestOption)
+    fetch(`${urlServer}/staffs`, requestOption)
       .then((response) => response.json())
       .then((data) => setDataStaff(data));
   }, []);

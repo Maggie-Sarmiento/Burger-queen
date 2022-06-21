@@ -14,6 +14,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 // import MoreVertIcon from '@mui/icons-material/MoreVert';
 import styles from './ListOrders.module.css';
+import { urlServer } from '../../../../config';
 
 const ListOrders = () => {
   const [dataOrder, setDataOrder] = useState([]);
@@ -23,7 +24,7 @@ const ListOrders = () => {
       method: 'GET',
       headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('token') },
     };
-    fetch('http://localhost:8080/orders', requestOption)
+    fetch(`${urlServer}/orders`, requestOption)
       .then((response) => response.json())
       .then((data) => setDataOrder(data));
   }, []);

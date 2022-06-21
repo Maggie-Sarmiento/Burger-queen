@@ -4,6 +4,7 @@ import { Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import CardOrder from '../CardOrder/CardOrder';
 import style from '../../Admin/Menu/Menu.module.css';
+import { urlServer } from '../../../../config';
 
 const Orders = () => {
   const [dataMenu, setDataMenu] = useState([]);
@@ -14,7 +15,7 @@ const Orders = () => {
       method: 'GET',
       headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('token') },
     };
-    fetch('http://localhost:8080/orders', requestOption)
+    fetch(`${urlServer}/orders`, requestOption)
       .then((response) => response.json())
       .then((data) => setDataMenu(data));
   }, [refreshData]);

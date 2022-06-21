@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import styles from '../ModalMenu/ModalMenu.module.css';
+import { urlServer } from '../../../../../config';
 
 const style = {
   display: 'flex',
@@ -51,14 +52,14 @@ const ModalEditMenu = ({
     const refresh = () => setRefreshData(!refreshData);
 
     if (menu === 'menu') {
-      fetch(`http://localhost:8080/menu/${id}`, requestOption)
+      fetch(`${urlServer}/menu/${id}`, requestOption)
         .then((response) => {
           response.json();
           refresh();
         })
         .catch((err) => console.log(err));
     } else {
-      fetch(`http://localhost:8080/menuLunch/${id}`, requestOption)
+      fetch(`${urlServer}/menuLunch/${id}`, requestOption)
         .then((response) => {
           response.json();
           refresh();

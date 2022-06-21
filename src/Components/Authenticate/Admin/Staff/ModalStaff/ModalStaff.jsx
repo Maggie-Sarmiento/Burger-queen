@@ -11,6 +11,7 @@ import { setDoc, doc } from 'firebase/firestore';
 import { updateCurrentUser, updateProfile } from 'firebase/auth';
 import { auth, db } from '../../../../../Firebase/firebase.config';
 import styles from './ModalStaff.module.css';
+import { urlServer } from '../../../../../config';
 
 const roles = [
   {
@@ -96,7 +97,7 @@ const ModalStaff = ({ open, setOpen }) => {
       body: JSON.stringify(localData),
     };
 
-    fetch('http://localhost:8080/staffs', requestOption)
+    fetch(`${urlServer}/staffs`, requestOption)
       .then((response) => response.json())
       .catch((err) => console.log(err));
   };

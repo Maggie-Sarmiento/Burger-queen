@@ -8,6 +8,7 @@ import CardMenu from './CardMenu/CardMenu';
 // import MenuBtn from '../Subcomponents/MenuBtn';
 import ModalMenu from './ModalMenu/ModalMenu';
 import style from './Menu.module.css';
+import { urlServer } from '../../../../config';
 
 const btnStyle = {
   bgcolor: 'black',
@@ -29,7 +30,7 @@ const Menu = ({ role }) => {
       method: 'GET',
       headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('token') },
     };
-    fetch('http://localhost:8080/menu', requestOption)
+    fetch(`${urlServer}/menu`, requestOption)
       .then((response) => response.json())
       .then((data) => setDataMenu(data));
   }, [refreshData]);
