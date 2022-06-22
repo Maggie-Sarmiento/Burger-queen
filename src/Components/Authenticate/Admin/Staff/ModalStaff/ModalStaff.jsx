@@ -11,7 +11,7 @@ import { setDoc, doc } from 'firebase/firestore';
 import { updateCurrentUser, updateProfile } from 'firebase/auth';
 import { auth, db } from '../../../../../Firebase/firebase.config';
 import styles from './ModalStaff.module.css';
-import { urlServer } from '../../../../../config';
+import { urlServer } from '../../../../../conf';
 
 const roles = [
   {

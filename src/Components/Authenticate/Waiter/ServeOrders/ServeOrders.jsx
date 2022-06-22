@@ -4,7 +4,7 @@ import { Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import CardServeOrder from '../CardServeOder/CardServeOrder';
 import style from '../../Admin/Menu/Menu.module.css';
-import { urlServer } from '../../../../config';
+import { urlServer } from '../../../../conf';
 
 const ServeOrders = () => {
   const [dataMenu, setDataMenu] = useState([]);

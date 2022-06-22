@@ -7,7 +7,7 @@ import AddIcon from '@mui/icons-material/Add';
 import CardMenu from '../Menu/CardMenu/CardMenu';
 import ModalMenu from '../Menu/ModalMenu/ModalMenu';
 import style from '../Menu/Menu.module.css';
-import { urlServer } from '../../../../config';
+import { urlServer } from '../../../../conf';
 
 const btnStyle = {
   bgcolor: 'black',

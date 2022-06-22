@@ -14,7 +14,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 // import MoreVertIcon from '@mui/icons-material/MoreVert';
 import styles from './ListOrders.module.css';
-import { urlServer } from '../../../../config';
+import { urlServer } from '../../../../conf';
 
 const ListOrders = () => {
   const [dataOrder, setDataOrder] = useState([]);

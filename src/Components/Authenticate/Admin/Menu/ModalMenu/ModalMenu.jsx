@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import { makeStyles } from '@mui/material';
-import { urlServer } from '../../../../../config';
+import { urlServer } from '../../../../../conf';
 
 const style = {
   display: 'flex',

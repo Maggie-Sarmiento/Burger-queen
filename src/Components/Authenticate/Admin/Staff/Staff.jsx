@@ -18,7 +18,7 @@ import Box from '@mui/material/Box';
 import ModalStaff from './ModalStaff/ModalStaff';
 import StaffBtn from './StaffBtn';
 import styles from './Staff.module.css';
-import { urlServer } from '../../../../config';
+import { urlServer } from '../../../../conf';
 // import { flexbox } from '@mui/system';
 
 const modal = {

@@ -15,7 +15,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { urlServer } from '../../../../config';
+import { urlServer } from '../../../../conf';
 
 const btnCar = {
   minWidth: '0',

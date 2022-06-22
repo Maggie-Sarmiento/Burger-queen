@@ -3,7 +3,7 @@
 exports[`test ServeOrders render ServeOrder 1`] = `
 <section>
   <span
-    className="BaseBadge-root MuiBadge-root css-1c32n2y-MuiBadge-root"
+    className="MuiBadge-root BaseBadge-root css-1c32n2y-MuiBadge-root"
   >
     <button
       aria-haspopup="true"
@@ -42,7 +42,7 @@ exports[`test ServeOrders render ServeOrder 1`] = `
       />
     </button>
     <span
-      className="BaseBadge-badge MuiBadge-badge MuiBadge-standard MuiBadge-invisible MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorPrimary css-106c1u2-MuiBadge-badge"
+      className="MuiBadge-badge MuiBadge-standard MuiBadge-invisible MuiBadge-anchorOriginTopRight MuiBadge-anchorOriginTopRightRectangular MuiBadge-overlapRectangular MuiBadge-colorPrimary BaseBadge-badge css-106c1u2-MuiBadge-badge"
     />
   </span>
   <div />

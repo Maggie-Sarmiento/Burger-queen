@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-import { urlServer } from '../../../../config';
+import { urlServer } from '../../../../conf';
 
 const btnStyle = {
   bgcolor: 'white',
