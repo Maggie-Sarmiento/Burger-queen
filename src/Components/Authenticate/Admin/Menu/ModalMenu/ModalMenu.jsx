@@ -7,7 +7,8 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import { makeStyles } from '@mui/material';
-import { urlServer } from '../../../../../conf';
+
+const urlServer = process.env.REACT_APP_SERVER_URL;
 
 const style = {
   display: 'flex',

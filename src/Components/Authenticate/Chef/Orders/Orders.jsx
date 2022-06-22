@@ -4,7 +4,8 @@ import { Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import CardOrder from '../CardOrder/CardOrder';
 import style from '../../Admin/Menu/Menu.module.css';
-import { urlServer } from '../../../../conf';
+
+const urlServer = process.env.REACT_APP_SERVER_URL;
 
 const Orders = () => {
   const [dataMenu, setDataMenu] = useState([]);

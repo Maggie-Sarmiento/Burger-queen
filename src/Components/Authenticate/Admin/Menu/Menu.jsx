@@ -8,7 +8,8 @@ import CardMenu from './CardMenu/CardMenu';
 // import MenuBtn from '../Subcomponents/MenuBtn';
 import ModalMenu from './ModalMenu/ModalMenu';
 import style from './Menu.module.css';
-import { urlServer } from '../../../../conf';
+
+const urlServer = process.env.REACT_APP_SERVER_URL;
 
 const btnStyle = {
   bgcolor: 'black',

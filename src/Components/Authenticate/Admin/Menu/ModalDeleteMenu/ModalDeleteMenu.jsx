@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { urlServer } from '../../../../../conf';
+
+const urlServer = process.env.REACT_APP_SERVER_URL;
 
 const modal = {
   display: 'flex',
