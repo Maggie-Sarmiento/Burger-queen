@@ -7,7 +7,8 @@ import AddIcon from '@mui/icons-material/Add';
 import CardMenu from '../Menu/CardMenu/CardMenu';
 import ModalMenu from '../Menu/ModalMenu/ModalMenu';
 import style from '../Menu/Menu.module.css';
-import { urlServer } from '../../../../config';
+
+const urlServer = process.env.REACT_APP_SERVER_URL;
 
 const btnStyle = {
   bgcolor: 'black',

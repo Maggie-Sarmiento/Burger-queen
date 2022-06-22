@@ -94,7 +94,7 @@ exports[`test CardServeOrder render CardServeOrder 1`] = `
                 scope="col"
               >
                 <b>
-                  Cant.
+                  ID
                 </b>
               </th>
               <th

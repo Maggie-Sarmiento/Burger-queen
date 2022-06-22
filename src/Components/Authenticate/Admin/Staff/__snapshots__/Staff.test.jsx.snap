@@ -74,15 +74,6 @@ exports[`test Staff render Staff 1`] = `
               scope="col"
             >
               <b>
-                ID
-              </b>
-            </th>
-            <th
-              aria-sort={null}
-              className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
-              scope="col"
-            >
-              <b>
                 Nombre
               </b>
             </th>

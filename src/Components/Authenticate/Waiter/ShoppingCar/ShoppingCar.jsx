@@ -15,7 +15,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { urlServer } from '../../../../config';
+
+const urlServer = process.env.REACT_APP_SERVER_URL;
 
 const btnCar = {
   minWidth: '0',
